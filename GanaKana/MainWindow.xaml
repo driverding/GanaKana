@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<winex:WindowEx 
+    xmlns:winex="using:WinUIEx" 
+    MinWidth="660"
+    
+    x:Class="GanaKana.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GanaKana"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="GanaKana"
+    
+    SizeChanged="MainWindow_SizeChanged">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop Kind="Base"/>
+    </Window.SystemBackdrop>
+
+    <Grid
+        Loaded="MainGrid_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition 
+                x:Name="TitleBarRow"
+                Height="48" />
+            <RowDefinition
+                x:Name="DecorativeLineRow"
+                Height="1" />
+            <RowDefinition
+                x:Name="ContentRow"
+                Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid
+            x:Name="TitleBar"
+            Grid.Row="0"
+            Height="48"
+            Margin="12,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    x:Name="IconColumn"
+                    Width="auto" />
+                <ColumnDefinition
+                    x:Name="TitleColumn"
+                    Width="auto" />
+                <ColumnDefinition
+                    x:Name="NavigationViewColumn"
+                    Width="*" />
+                <ColumnDefinition
+                    x:Name="ControlButtonsColumn"
+                    Width="144" />
+            </Grid.ColumnDefinitions>
+
+            <FontIcon 
+                Grid.Column="0"
+                Margin="12,0,0,0"
+                FontFamily="Segoe Fluent Icons" Glyph="&#xE986;"/>
+
+            <TextBlock
+                Grid.Column="1"
+                Margin="12,0,0,0"
+                Text="GanaKana" 
+                VerticalAlignment="Center" />
+
+            <NavigationView
+                x:Name="NavigationView"
+                Grid.Column="2"
+                Margin="12,0,0,0"
+                SelectionChanged="NavigationView_SelectionChanged" 
+                PaneDisplayMode="Top"
+                IsBackButtonVisible="Collapsed"
+                Loaded="NavigationView_Loaded">
+
+                <NavigationView.MenuItems>
+                    <NavigationViewItem 
+                        x:Name="PlayItem" 
+                        Icon="Play" 
+                        Content="Play" 
+                        Tag="PlayPage" />
+                    <NavigationViewItem 
+                        x:Name="LearnItem"
+                        Icon="Bookmarks" 
+                        Content="Learn" 
+                        Tag="LearnPage" />
+                </NavigationView.MenuItems>
+
+            </NavigationView>
+
+        </Grid>
+
+        <Rectangle
+            Grid.Row="1"
+            Height="1" 
+            Width="Auto"
+            Fill="{ThemeResource CardStrokeColorDefaultBrush}" />
+
+        <Frame
+            x:Name="ContentFrame" 
+            Grid.Row="2"/>
+
+    </Grid>
+</winex:WindowEx>

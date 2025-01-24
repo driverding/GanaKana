@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "GanaKana (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "GanaKana (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
