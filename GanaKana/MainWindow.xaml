@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <winex:WindowEx 
     xmlns:winex="using:WinUIEx" 
-    MinWidth="660"
+    MinWidth="700"
+    MinHeight="700"
     
     x:Class="GanaKana.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

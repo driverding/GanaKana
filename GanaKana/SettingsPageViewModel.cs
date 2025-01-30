@@ -6,7 +6,7 @@ namespace GanaKana
 {
     public partial class SettingsPageViewModel : INotifyPropertyChanged
     {
-        ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+        private readonly ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
         public event PropertyChangedEventHandler? PropertyChanged = delegate { };
 
@@ -42,6 +42,16 @@ namespace GanaKana
             set
             {
                 localSettings.Values["YouonEnabled"] = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool SpecialEnabled
+        {
+            get => (bool)localSettings.Values["SpecialEnabled"];
+            set
+            {
+                localSettings.Values["SpecialEnabled"] = value;
                 OnPropertyChanged();
             }
         }

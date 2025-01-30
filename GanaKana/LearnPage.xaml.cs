@@ -1,22 +1,40 @@
 using Microsoft.UI.Xaml.Controls;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
+using Windows.Storage;
 
 namespace GanaKana
 {
     public sealed partial class LearnPage : Page
     {
-        ObservableCollection<CharData> HiraganaSource { get; } = RenderItemsSource(Data.hiraganaDict);
-        ObservableCollection<CharData> KatakanaSource { get; } = RenderItemsSource(Data.katakanaDict);
-        ObservableCollection<CharData> HiraganaCombSource { get; } = RenderItemsSource(Data.hiraganaCombDict);
-        ObservableCollection<CharData> KatakanaCombSource { get; } = RenderItemsSource(Data.katakanaCombDict);
+        public bool HiraganaEnabled { get; }
+        public bool KatakanaEnabled { get; }
+        public bool YouonEnabled { get; }
+        public bool HiraganaYouonEnabled { get; }
+        public bool KatakanaYouonEnabled { get; }
+        public bool HistoryEnabled { get; }
+        public bool SpecialEnabled { get; }
+        
+        ObservableCollection<CharData> HiraganaSource { get; }
+        ObservableCollection<CharData> KatakanaSource { get; }
+        ObservableCollection<CharData> HiraganaCombSource { get; } 
+        ObservableCollection<CharData> KatakanaCombSource { get; }
 
         public LearnPage()
         {
             InitializeComponent();
+            var localSettings = ApplicationData.Current.LocalSettings;
+            HiraganaEnabled = (bool)localSettings.Values["HiraganaEnabled"];
+            KatakanaEnabled = (bool)localSettings.Values["KatakanaEnabled"];
+            YouonEnabled = (bool)localSettings.Values["YouonEnabled"];
+            SpecialEnabled = (bool)localSettings.Values["SpecialEnabled"];
+
+            HiraganaYouonEnabled = HiraganaEnabled && YouonEnabled;
+            KatakanaYouonEnabled = KatakanaEnabled && YouonEnabled;
+
+            HiraganaSource = RenderItemsSource(Data.hiraganaDict);
+            KatakanaSource = RenderItemsSource(Data.katakanaDict);
+            HiraganaCombSource = RenderItemsSource(Data.hiraganaCombDict);
+            KatakanaCombSource = RenderItemsSource(Data.katakanaCombDict);
         }
         private void Page_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
@@ -26,13 +44,20 @@ namespace GanaKana
             KatakanaYouonGridView.ItemsSource = KatakanaCombSource;
         }
 
-        private static ObservableCollection<CharData> RenderItemsSource((string, string)[] data)
+        private ObservableCollection<CharData> RenderItemsSource((string, string, Data.Type)[] data)
         {
             ObservableCollection<CharData> result = [];
 
             foreach (var pair in data)
             {
-                result.Add(new CharData { GanaKana = pair.Item1, Romaji = pair.Item2 });
+                if (pair.Item3 == Data.Type.Special && !SpecialEnabled)
+                {
+                    result.Add(new CharData { GanaKana = "", Romaji = "" });
+                }
+                else
+                {
+                    result.Add(new CharData { GanaKana = pair.Item1, Romaji = pair.Item2 });
+                }
             }
 
             return result;

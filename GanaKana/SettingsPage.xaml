@@ -30,25 +30,31 @@
 
             <controls:SettingsCard
                 Header="Hiragana"
-                Description="Enable Hiragana in Play Games">
+                Description="Enable Hiragana">
 
                 <ToggleSwitch x:Name="HiraganaToggleSwitch" IsOn="{x:Bind ViewModel.HiraganaEnabled, Mode=TwoWay}" />
             </controls:SettingsCard>
 
             <controls:SettingsCard
                 Header="Katakana"
-                Description="Enable Katakana in Play Games">
+                Description="Enable Katakana">
 
                 <ToggleSwitch x:Name="KatakanaToggleSwitch" IsOn="{x:Bind ViewModel.KatakanaEnabled, Mode=TwoWay}" />
             </controls:SettingsCard>
 
             <controls:SettingsCard
                 Header="Youon"
-                Description="Enable Youon in Play Games">
+                Description="Enable Youon">
 
                 <ToggleSwitch x:Name="YouonToggleSwitch" IsOn="{x:Bind ViewModel.YouonEnabled, Mode=TwoWay}" />
             </controls:SettingsCard>
 
+            <controls:SettingsCard
+                Header="Special Character"
+                Description="Enable Special Charater that is not commonly used">
+
+                <ToggleSwitch x:Name="SpecialToggleSwitch" IsOn="{x:Bind ViewModel.SpecialEnabled, Mode=TwoWay}" />
+            </controls:SettingsCard>
 
 
         </StackPanel>

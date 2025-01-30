@@ -8,6 +8,8 @@ namespace GanaKana
 {
     public sealed partial class PlayPage : Page
     {
+        private readonly ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+
         public PlayPageViewModel ViewModel { get; set; } = new PlayPageViewModel
         {
             Title = "Get Ready",
@@ -48,12 +50,13 @@ namespace GanaKana
         {
             if (state == State.Graded)
             {
-                var localSettings = ApplicationData.Current.LocalSettings;
+                // var localSettings = ApplicationData.Current.LocalSettings;
                 bool HiraganaEnabled = (bool)localSettings.Values["HiraganaEnabled"];
                 bool KatakanaEnabled = (bool)localSettings.Values["KatakanaEnabled"];
                 bool YouonEnabled = (bool)localSettings.Values["YouonEnabled"];
+                bool SpecialEnabled = (bool)localSettings.Values["SpecialEnabled"];
 
-                var question = Data.PickRandom(HiraganaEnabled, KatakanaEnabled, YouonEnabled);
+                var question = Data.PickRandom(HiraganaEnabled, KatakanaEnabled, YouonEnabled, SpecialEnabled);
                 ViewModel.Title = question.Item1;
                 answer = question.Item2;
 

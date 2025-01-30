@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     
     Loaded="Page_Loaded"
-    NavigationCacheMode="Enabled">
+    NavigationCacheMode="Disabled">
 
     <Page.Resources>
 
@@ -63,14 +63,15 @@
 
             <TextBlock
                 Text="Hiragana" 
-                Style="{StaticResource TitleTextBlockStyle}" />
+                Style="{StaticResource TitleTextBlockStyle}"
+                Visibility="{x:Bind HiraganaEnabled}"/>
 
             <GridView
                 x:Name="HiraganaGridView"
                 Margin="0,24,0,0"
                 HorizontalAlignment="Center"
                 ItemTemplate="{StaticResource CharacterTemplate}"
-                >
+                Visibility="{x:Bind HiraganaEnabled}">
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsWrapGrid 
@@ -83,13 +84,15 @@
 
             <TextBlock
                 Text="Katakana"
-                Style="{StaticResource TitleTextBlockStyle}"/>
+                Style="{StaticResource TitleTextBlockStyle}"
+                Visibility="{x:Bind KatakanaEnabled}"/>
 
             <GridView
                 x:Name="KatakanaGridView"
                 Margin="0,24,0,0"
                 HorizontalAlignment="Center"
-                ItemTemplate="{StaticResource CharacterTemplate}">
+                ItemTemplate="{StaticResource CharacterTemplate}"
+                Visibility="{x:Bind KatakanaEnabled}">
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsWrapGrid 
@@ -102,13 +105,15 @@
 
             <TextBlock
                 Text="Hiragana Youon"
-                Style="{StaticResource TitleTextBlockStyle}"/>
+                Style="{StaticResource TitleTextBlockStyle}"
+                Visibility="{x:Bind HiraganaYouonEnabled}"/>
 
             <GridView
                 x:Name="HiraganaYouonGridView"
                 Margin="0,24,0,0"
                 HorizontalAlignment="Center"
-                ItemTemplate="{StaticResource YouonTemplate}">
+                ItemTemplate="{StaticResource YouonTemplate}"
+                Visibility="{x:Bind HiraganaYouonEnabled}">
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsWrapGrid 
@@ -121,13 +126,15 @@
 
             <TextBlock
                 Text="Katakana Youon"
-                Style="{StaticResource TitleTextBlockStyle}"/>
+                Style="{StaticResource TitleTextBlockStyle}"
+                Visibility="{x:Bind KatakanaYouonEnabled}"/>
 
             <GridView
                 x:Name="KatakanaYouonGridView"
                 Margin="0,24,0,0"
                 HorizontalAlignment="Center"
-                ItemTemplate="{StaticResource YouonTemplate}">
+                ItemTemplate="{StaticResource YouonTemplate}"
+                Visibility="{x:Bind KatakanaYouonEnabled}">
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsWrapGrid 

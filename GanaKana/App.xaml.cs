@@ -46,7 +46,10 @@ namespace GanaKana
             if (!localSettings.Values.ContainsKey("YouonEnabled"))
             {
                 localSettings.Values["YouonEnabled"] = true;
-                localSettings.Values["YouonEnabled"] = true;
+            }
+            if (!localSettings.Values.ContainsKey("SpecialEnabled"))
+            {
+                localSettings.Values["SpecialEnabled"] = false;
             }
         }
 
