@@ -1,6 +1,7 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
+using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 
 
@@ -10,14 +11,7 @@ namespace GanaKana
     {
         private readonly ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
-        public PlayPageViewModel ViewModel { get; set; } = new PlayPageViewModel
-        {
-            Title = "Get Ready",
-            Subtitle = "Press Enter to Start",
-            BackgroundColor = "LightBlue",
-            Symbol = "Accept",
-            SymbolVisibility = "Collapsed"
-        };
+        public PlayPageViewModel ViewModel { get; set; } 
 
         private enum State
         {
@@ -31,6 +25,17 @@ namespace GanaKana
         public PlayPage()
         {
             InitializeComponent();
+
+            ResourceLoader resourceLoader = ResourceLoader.GetForViewIndependentUse();
+
+            ViewModel = new PlayPageViewModel
+            {
+                Title = resourceLoader.GetString("PlayPage_GetReady"),
+                Subtitle = resourceLoader.GetString("PlayPage_PressEnterToStart"),
+                BackgroundColor = "LightBlue",
+                Symbol = "Accept",
+                SymbolVisibility = "Collapsed"
+            };
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

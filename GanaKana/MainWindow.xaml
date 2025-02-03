@@ -61,7 +61,7 @@
             <TextBlock
                 Grid.Column="1"
                 Margin="12,0,0,0"
-                Text="GanaKana" 
+                x:Uid="TitleBar_AppTitle_TextBlock"
                 VerticalAlignment="Center" />
 
             <NavigationView
@@ -76,11 +76,13 @@
                 <NavigationView.MenuItems>
                     <NavigationViewItem 
                         x:Name="PlayItem" 
+                        x:Uid="TitleBar_Play_Item"
                         Icon="Play" 
                         Content="Play" 
                         Tag="PlayPage" />
                     <NavigationViewItem 
                         x:Name="LearnItem"
+                        x:Uid="TitleBar_Learn_Item"
                         Icon="Bookmarks" 
                         Content="Learn" 
                         Tag="LearnPage" />

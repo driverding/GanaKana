@@ -55,9 +55,9 @@
 
         <TextBox
             x:Name="TextBox"
+            x:Uid="PlayPage_TextBox"
             Margin="0,40,0,30"
             Width="200"
-            PlaceholderText="Answer"
             Grid.Column="1"
             Grid.Row="2"
             KeyDown="TextBox_KeyDown" />

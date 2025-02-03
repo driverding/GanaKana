@@ -20,38 +20,34 @@
         Spacing="4">
 
             <TextBlock
-            Text="Settings"
-            Style="{StaticResource TitleTextBlockStyle}" />
+                x:Uid="SettingsPage_Settings_TextBlock"
+                Style="{StaticResource TitleTextBlockStyle}" />
 
             <TextBlock
-            Text="Alphabet"
-            Margin="0,16,0,16"
-            Style="{StaticResource SubtitleTextBlockStyle}" />
+                x:Uid="SettingsPage_Alphabet_TextBlock"
+                Margin="0,16,0,16"
+                Style="{StaticResource SubtitleTextBlockStyle}" />
 
             <controls:SettingsCard
-                Header="Hiragana"
-                Description="Enable Hiragana">
+                x:Uid="SettingsPage_Hiragana_Setting">
 
                 <ToggleSwitch x:Name="HiraganaToggleSwitch" IsOn="{x:Bind ViewModel.HiraganaEnabled, Mode=TwoWay}" />
             </controls:SettingsCard>
 
             <controls:SettingsCard
-                Header="Katakana"
-                Description="Enable Katakana">
+                x:Uid="SettingsPage_Katakana_Setting">
 
                 <ToggleSwitch x:Name="KatakanaToggleSwitch" IsOn="{x:Bind ViewModel.KatakanaEnabled, Mode=TwoWay}" />
             </controls:SettingsCard>
 
             <controls:SettingsCard
-                Header="Youon"
-                Description="Enable Youon">
+                x:Uid="SettingsPage_Youon_Setting">
 
                 <ToggleSwitch x:Name="YouonToggleSwitch" IsOn="{x:Bind ViewModel.YouonEnabled, Mode=TwoWay}" />
             </controls:SettingsCard>
 
             <controls:SettingsCard
-                Header="Special Character"
-                Description="Enable Special Charater that is not commonly used">
+                x:Uid="SettingsPage_SpecialCharacter_Setting">
 
                 <ToggleSwitch x:Name="SpecialToggleSwitch" IsOn="{x:Bind ViewModel.SpecialEnabled, Mode=TwoWay}" />
             </controls:SettingsCard>

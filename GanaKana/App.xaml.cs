@@ -1,4 +1,6 @@
 ﻿using Microsoft.UI.Xaml;
+using System.Globalization;
+using System.Resources;
 using Windows.Storage;
 
 // To learn more about WinUI, the WinUI project structure,

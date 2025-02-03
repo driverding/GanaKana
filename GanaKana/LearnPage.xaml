@@ -62,7 +62,7 @@
             Margin="64,40,64,40">
 
             <TextBlock
-                Text="Hiragana" 
+                x:Uid="LearnPage_Hiragana_TextBlock"
                 Style="{StaticResource TitleTextBlockStyle}"
                 Visibility="{x:Bind HiraganaEnabled}"/>
 
@@ -83,7 +83,7 @@
 
 
             <TextBlock
-                Text="Katakana"
+                x:Uid="LearnPage_Katakana_TextBlock"
                 Style="{StaticResource TitleTextBlockStyle}"
                 Visibility="{x:Bind KatakanaEnabled}"/>
 
@@ -104,7 +104,7 @@
 
 
             <TextBlock
-                Text="Hiragana Youon"
+                x:Uid="LearnPage_HiraganaYouon_TextBlock"
                 Style="{StaticResource TitleTextBlockStyle}"
                 Visibility="{x:Bind HiraganaYouonEnabled}"/>
 
@@ -125,7 +125,7 @@
 
 
             <TextBlock
-                Text="Katakana Youon"
+                x:Uid="LearnPage_KatakanaYouon_TextBlock"
                 Style="{StaticResource TitleTextBlockStyle}"
                 Visibility="{x:Bind KatakanaYouonEnabled}"/>
 
