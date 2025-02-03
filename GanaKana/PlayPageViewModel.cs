@@ -35,16 +35,16 @@ namespace GanaKana
             }
         }
 
-        private string? backgroundColor;
-        public string? BackgroundColor
-        {
-            get { return backgroundColor; }
-            set
-            {
-                backgroundColor = value;
-                OnPropertyChanged();
-            }
-        }
+        //private string? backgroundColor;
+        //public string? BackgroundColor
+        //{
+        //    get { return backgroundColor; }
+        //    set
+        //    {
+        //        backgroundColor = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
         private string? symbol;
         public string? Symbol

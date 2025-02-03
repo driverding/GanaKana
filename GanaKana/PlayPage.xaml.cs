@@ -1,6 +1,8 @@
+using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
 using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 
@@ -32,10 +34,11 @@ namespace GanaKana
             {
                 Title = resourceLoader.GetString("PlayPage_GetReady"),
                 Subtitle = resourceLoader.GetString("PlayPage_PressEnterToStart"),
-                BackgroundColor = "LightBlue",
                 Symbol = "Accept",
                 SymbolVisibility = "Collapsed"
             };
+
+            MainGrid.Background = new SolidColorBrush(Colors.Transparent);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -67,7 +70,7 @@ namespace GanaKana
 
                 ViewModel.Subtitle = "";
                 ViewModel.SymbolVisibility = "Collapsed";
-                ViewModel.BackgroundColor = "Transparent";
+                MainGrid.Background = new SolidColorBrush(Colors.Transparent);
 
                 TextBox.Text = "";
                 state = State.Questioned;
@@ -77,12 +80,14 @@ namespace GanaKana
                 if (TextBox.Text == answer)
                 {
                     ViewModel.Symbol = "Accept";
-                    ViewModel.BackgroundColor = "Green";
+                    MainGrid.Background = (Brush)Application.Current.Resources["SystemFillColorSuccessBackgroundBrush"];
+                    // ViewModel.BackgroundColor = "Green";
                 }
                 else
                 {
                     ViewModel.Symbol = "Cancel";
-                    ViewModel.BackgroundColor = "Pink";
+                    MainGrid.Background = (Brush)Application.Current.Resources["SystemFillColorCriticalBackgroundBrush"];
+                    // ViewModel.BackgroundColor = "Pink";
                 }
 
                 ViewModel.Subtitle = answer;
