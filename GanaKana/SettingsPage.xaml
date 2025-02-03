@@ -52,6 +52,17 @@
                 <ToggleSwitch x:Name="SpecialToggleSwitch" IsOn="{x:Bind ViewModel.SpecialEnabled, Mode=TwoWay}" />
             </controls:SettingsCard>
 
+            <TextBlock
+                x:Uid="SettingsPage_About_TextBlock"
+                Margin="0,16,0,16"
+                Style="{StaticResource SubtitleTextBlockStyle}" />
+
+            <controls:SettingsCard
+                x:Uid="SettingsPage_About_Setting" >
+
+                <TextBlock x:Name="VersionTextBlock" />
+
+            </controls:SettingsCard>
 
         </StackPanel>
 

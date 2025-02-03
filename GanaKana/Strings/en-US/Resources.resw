@@ -177,4 +177,13 @@
   <data name="PlayPage_TextBox.PlaceholderText" xml:space="preserve">
     <value>Answer</value>
   </data>
+  <data name="SettingsPage_About_TextBlock.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="SettingsPage_About_Setting.Header" xml:space="preserve">
+    <value>GanaKana</value>
+  </data>
+  <data name="SettingsPage_About_Setting.Description" xml:space="preserve">
+    <value>Made with love by inexperienced Driver Ding</value>
+  </data>
 </root>

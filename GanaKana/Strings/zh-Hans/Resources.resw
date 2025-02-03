@@ -177,4 +177,13 @@
   <data name="PlayPage_TextBox.PlaceholderText" xml:space="preserve">
     <value>答案</value>
   </data>
+  <data name="SettingsPage_About_TextBlock.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="SettingsPage_About_Setting.Header" xml:space="preserve">
+    <value>GanaKana</value>
+  </data>
+  <data name="SettingsPage_About_Setting.Description" xml:space="preserve">
+    <value>由不熟练的 Driver Ding 倾情制作</value>
+  </data>
 </root>
